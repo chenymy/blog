@@ -32,7 +32,7 @@ https://docs.docker.com/reference/cli/docker/
 
 用一副图来表示这些命令的关系：
 
-![image-20240312193253655](https://s2.loli.net/2024/03/12/UdK1FuyBsMRZjOD.png)
+![image-20240312193253655](https://gitee.com/chenymy/picbed/raw/master/img/UdK1FuyBsMRZjOD.png)
 
 补充：
 
@@ -152,7 +152,7 @@ source /root/.bashrc
 
 但遗憾的是，容器运行的Nginx所有的文件都在容器内部。所以我们必须利用数据卷将两个目录与宿主机目录关联，方便我们操作。如图：
 
-![image-20240312194025759](https://s2.loli.net/2024/03/12/a5gepvNPE9kUsdm.png)
+![image-20240312194025759](https://gitee.com/chenymy/picbed/raw/master/img/a5gepvNPE9kUsdm.png)
 
 在上图中：
 
@@ -439,7 +439,7 @@ show tables;
 
 例如，第一步中需要的Linux运行环境，通用性就很强，所以Docker官方就制作了这样的只包含Linux运行环境的镜像。我们在制作java镜像时，就无需重复制作，直接使用Docker官方提供的CentOS或Ubuntu镜像作为基础镜像。然后再搭建其它层即可，这样逐层搭建，最终整个Java项目的镜像结构如图所示：
 
-![img](https://s2.loli.net/2024/03/12/o1OI8bBizrWYE2U.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/o1OI8bBizrWYE2U.png)
 
 ### Dockerfile
 
@@ -534,7 +534,7 @@ docker build -t docker-demo:1.0 .
 
 结果：
 
-![img](https://s2.loli.net/2024/03/12/K73RLqmv8DEMW1J.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/K73RLqmv8DEMW1J.png)
 
 查看镜像列表：
 
@@ -692,35 +692,35 @@ mysql容器中已经准备好了商城的数据，所以就不再删除了。
 
 `hmall`项目是一个maven聚合项目，使用IDEA打开`hmall`项目，查看项目结构如图：
 
-![img](https://s2.loli.net/2024/03/12/s45QZyJVvYxHak3.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/s45QZyJVvYxHak3.png)
 
 我们要部署的就是其中的`hm-service`，其中的配置文件采用了多环境的方式：
 
-![img](https://s2.loli.net/2024/03/12/OdPhB5Q63lyW4fg.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/OdPhB5Q63lyW4fg.png)
 
 其中的`application-dev.yaml`是部署到开发环境的配置，`application-local.yaml`是本地运行时的配置。
 
 查看application.yaml，你会发现其中的JDBC地址并未写死，而是读取变量：
 
-![img](https://s2.loli.net/2024/03/12/YZDWpcn8T1GXArL.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/YZDWpcn8T1GXArL.png)
 
 这两个变量在`application-dev.yaml`和`application-local.yaml`中并不相同：
 
-![img](https://s2.loli.net/2024/03/12/5IG3C6EXZALkqFK.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/5IG3C6EXZALkqFK.png)
 
 在dev开发环境（也就是Docker部署时）采用了mysql作为地址，刚好是我们的mysql容器名，只要两者在一个网络，就一定能互相访问。
 
 我们将项目打包：
 
-![img](https://s2.loli.net/2024/03/12/j9KlMsYEVLP8cFa.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/j9KlMsYEVLP8cFa.png)
 
 结果：
 
-![img](https://s2.loli.net/2024/03/12/u6NzEyTMP4GDO7V.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/u6NzEyTMP4GDO7V.png)
 
 将`hm-service`目录下的`Dockerfile`和`hm-service/target`目录下的`hm-service.jar`一起上传到虚拟机的`root`目录：
 
-![img](https://s2.loli.net/2024/03/12/Ki4hTvBf5VRFl2J.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/Ki4hTvBf5VRFl2J.png)
 
 部署项目：
 
@@ -747,7 +747,7 @@ docker run -d --name hmall --network hmall -p 8080:8080 hmall
 
 `hmall-portal`和`hmall-admin`是前端代码，需要基于nginx部署。在课前资料中已经给大家提供了nginx的部署目录：
 
-![img](https://s2.loli.net/2024/03/12/1PC7qyiHLgE48lW.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/1PC7qyiHLgE48lW.png)
 
 其中：
 
@@ -756,7 +756,7 @@ docker run -d --name hmall --network hmall -p 8080:8080 hmall
 
 我们现在要做的就是把整个nginx目录上传到虚拟机的`/root`目录下：
 
-![img](https://s2.loli.net/2024/03/12/rilRdzGP18xoIh7.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/rilRdzGP18xoIh7.png)
 
 然后创建nginx容器并完成两个挂载：
 
@@ -783,7 +783,7 @@ docker run -d \
 
 测试，通过浏览器访问：http://你的虚拟机ip:18080
 
-![img](https://s2.loli.net/2024/03/12/g4ctf6GHnTUwzRQ.png)
+![img](https://gitee.com/chenymy/picbed/raw/master/img/g4ctf6GHnTUwzRQ.png)
 
 ### DockerCompose
 

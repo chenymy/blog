@@ -18,7 +18,7 @@ if self.connection.client.executable_name == 'mysql' and model._meta.verbose_nam
 	sql += " COMMENT '%s'" % model._meta.verbose_name
 ```
 
-![image-20240511231403198](https://s2.loli.net/2024/05/11/tzBgM8mo3qD6f7V.png)
+![image-20240511231403198](https://gitee.com/chenymy/picbed/raw/master/img/tzBgM8mo3qD6f7V.png)
 
 ## 字段注释
 
@@ -32,4 +32,4 @@ if self.connection.client.executable_name == 'mysql' and field.verbose_name:
 	sql += " COMMENT '%s'" % field.verbose_name
 ```
 
-![image-20240511231307038](https://s2.loli.net/2024/05/11/mOrcLNQwa56EKuC.png)
+![image-20240511231307038](https://gitee.com/chenymy/picbed/raw/master/img/mOrcLNQwa56EKuC.png)
