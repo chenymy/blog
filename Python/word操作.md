@@ -1,12 +1,14 @@
+# 操作word
+
 ## word转pdf
 
-- ### 以来office应用的略
+- ### 依赖office应用的略
 
 - ### 方法一
 
   pip install Spire.Doc
 
-  有水印
+  生成的pdf有水印，去水印参考其他文档
 
   ```python
   import time
@@ -27,7 +29,7 @@
 
   pip install aspose-words
 
-  有水印
+  生成的pdf有水印，去水印参考其他文档
 
   ```python
   import time
@@ -40,7 +42,3 @@
   doc.save(pdf_file)
   print(time.time() - aa)	# 1.8513450622558594
   ```
-
-  ### 其他
-
-  去水印参考其他文档
